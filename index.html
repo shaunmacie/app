@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+
+<script type='text/javascript'>
+   var wwsRelease = 'http://webworksheet.com/release/030601';
+   var iterations = 3;
+   var manualCalculation = false;
+   var calculateOnInit = true;
+   var imageFolder = 'wwsImages';
+   var displayZeroes = true;
+   var dbConnection = '';
+   var dbQueryScript = '';
+   var firstInput = 'iB9';
+   var datePickerAuto = '';
+   var datePickerImg = '';
+   var activeBorder = '2px solid black';
+   var activeBackground = 'transparent';
+   var tabOrder = '';
+   var lastBtnClick = '';
+   var pageOrientation = 2;
+   var pageLeftMargin = 67;
+   var pageRightMargin = 67;
+   var pageTopMargin = 48;
+   var pageBottomMargin = 72;
+   var protectPage = false;
+   var webQueries = new Array();
+</script>
+<script type='text/javascript' src='http://webworksheet.com/release/030601/webworksheet.js'></script>
+<script type='text/javascript' src='http://webworksheet.com/release/030601/webworksheetUpdate.js'></script>
+
+  
+
+<style type='text/css'>
+@media all {
+ Body {overflow:auto;}
+ A {text-decoration:none; cursor:pointer; color:inherit;}
+ A.Bookmark {cursor:default;}
+ A.Active {color:#0000FF; font:11pt Calibri; text-decoration:underline;}
+ Input:focus {outline:none;}
+ Input.Text {border:none; padding-right:2px;}
+ Input.Checkbox {border:none; background:transparent;}
+ Input.Button {cursor:pointer;}
+ Textarea {border:none; background-color:transparent; margin-left:1px; white-space:normal; overflow:hidden; wrap:soft; resize:none;}
+ Div.InputMessage {border:#000000 solid 1pt; font:8pt Tahoma, sans-serif; background-color:#FFFFDD; padding:4px; text-align:left; position:absolute; width:60px; white-space:normal; overflow:visible;}
+ Div.CommentImage {border:none; background-color:#FFFFFF; position:absolute; white-space:normal; overflow:visible;}
+ Div.FilterMenu {border:0px; font:8pt Arial; background-color:#FFFFFF; position:absolute; white-space:normal; overflow:visible;}
+ Object {display:none;}
+ IMG {border:none;}
+ IMG.Cal {cursor:pointer;}
+ TD {white-space:normal; margin-right:2px;}
+ TD.hidden {width:0px; visibility:hidden;}
+
+}
+@media print {
+ Input.button {display:none;}
+ Img.cal {display:none;}
+ .page-break { display:block; page-break-before:always; }
+}
+</style>
+
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2'></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+$("input").not( $(":button") ).keypress(function (evt) {
+if (evt.keyCode == 13) {
+iname = $(this).val();
+if (iname !== 'Submit'){
+var fields = $('input:text,input:checkbox,select,textarea');
+var index = fields.index( this );
+if ( index > -1 && ( index + 1 ) < fields.length ) {
+fields.eq( index + 1 ).focus();
+}
+return false;
+}
+}
+});
+    });
+</script>
+
+
+<body onload='wwsInit();'>
+<form name='worksheet' action='' enctype='multipart/form-data'>
+<table align="center" cellpadding=0 cellspacing=0  id='main' style="color:#16417f; font-family:Times, 'Times New Roman', Cambria, 'Hoefler Text', 'Liberation Serif', serif; font-size:16px; line-height:20px; border-style:outset">
+
+
+
+<tr id='ROW9'  align="center" valign="middle">
+<td height="67" colspan="3" valign="top" bgcolor="#ffe7be" class='B9' id='B9' category='currency' format='_($* #,##0.00_);_($* (#,##0.00);_($* "-"??_);_(@_)' data-cval=''> <strong><img src="images/BlueBridgeLogo_400_ffe7be.jpg" width="400" height="245" alt="Blue Bridge Financial"/><br>
+  INPUT EQUIPMENT COST:<br>
+</strong><span class="B9">
+    <input name="iB"  class='iB9' id='iB9' style="color:#16417f; width: 100px; height:25px; font-family:Times, 'Times New Roman', Cambria, 'Hoefler Text', 'Liberation Serif', serif; font-size:18px; text-align:center; background-color:#FFFFFF" onFocus='return hilite(this.id);' onChange='return calculate("B9")' data-default='25000' >
+    <br>
+<br>
+</span></td>
+</tr>
+
+<tr>
+<td height="3" colspan="3" bgcolor="#333333"></td>
+</tr>
+
+<tr id='ROW11' align="center" valign="middle" >
+<td width="200" height="57" align="center" valign="middle" bgcolor="#19417f" class='A11' id='A11' style="color:#FFFFFF; font-family:Tahoma, sans-serif; font-size:14px; line-height:20px; font-weight:bold"><strong> MONTHLY <br>
+  TERM </strong></td>
+<td width="3" rowspan="8" align="center" valign="middle" bgcolor="#333333"></td>
+<td width="200" bgcolor="#19417f" class='B2' id='B11' style="color:#FFFFFF; font-family:Tahoma, sans-serif; font-size:14px; line-height:20px; font-weight:bold" category='general'><strong>MONTHLY <br>
+  PAYMENT </strong></td>
+</tr>
+
+<tr id='ROW11' style='height:43px;'>
+<td width="200" align="center" bgcolor="#cbf0fd" class='C11' id='C11' category='number' format='#,##0_);(#,##0)' data-cval='12'>12 </td>
+<td width="200" align="center" bgcolor="#cbf0fd" class='C11' id='C12' category='currency' format='$#,##0.00_);[Red]($#,##0.00)'></td>
+</tr>
+<tr style='height:43px;'>
+  <td width="200" align="center" bgcolor="#9EDFF5" class='C11' id='D11' category='number' format='#,##0_);(#,##0)' data-cval='15'>15</td>
+  <td width="200" align="center" bgcolor="#9EDFF5" class='C11' id='D12' category='currency' format='$#,##0.00_);[Red]($#,##0.00)'></td>
+  </tr>
+<tr style='height:43px;'>
+  <td width="200" align="center" bgcolor="#cbf0fd" class='C11' id='E11' category='number' format='#,##0_);(#,##0)' data-cval='18'>18</td>
+  <td width="200" align="center" bgcolor="#cbf0fd" class='C11' id='E12' category='currency' format='$#,##0.00_);[Red]($#,##0.00)'></td>
+  </tr>
+<tr style='height:43px;'>
+  <td width="200" align="center" bgcolor="#9EDFF5" class='C11' id='F11' category='number' format='#,##0_);(#,##0)' data-cval='24'>24</td>
+  <td width="200" align="center" bgcolor="#9EDFF5" class='C11' id='F12' category='currency' format='$#,##0.00_);[Red]($#,##0.00)'></td>
+  </tr>
+<tr style='height:43px;'>
+  <td width="200" align="center" bgcolor="#cbf0fd" class='C11' id='G11' category='number' format='#,##0_);(#,##0)' data-cval='36'>36</td>
+  <td width="200" align="center" bgcolor="#cbf0fd" class='C11' id='G12' category='currency' format='$#,##0.00_);[Red]($#,##0.00)'></td>
+  </tr>
+<tr style='height:43px;'>
+  <td width="200" align="center" bgcolor="#9EDFF5" class='C11' id='H11' category='number' format='#,##0_);(#,##0)' data-cval='48'>48</td>
+  <td width="200" align="center" bgcolor="#9EDFF5" class='C11' id='H12' category='currency' format='$#,##0.00_);[Red]($#,##0.00)'></td>
+  </tr>
+<tr style='height:43px;'>
+  <td width="200" align="center" bgcolor="#cbf0fd" class='I11' id='I11' category='number' format='#,##0_);(#,##0)' data-cval='60'>60</td>
+  <td width="200" align="center" bgcolor="#cbf0fd" class='C11' id='I12' category='currency' format='$#,##0.00_);[Red]($#,##0.00)'></td>
+  </tr>
+
+</table>
+
+</form>
+
+<input id='iZZ99' maxlength=0 class='text' onfocus='scroll(0,0);return hilite("iB9");' />
+
+
+<!-- formulas -->
+<object id='fC12' formula='PMT(0.12/12,C11,-B9)'></object>
+<object id='fD12' formula='PMT(0.12/12,D11,-B9)'></object>
+<object id='fE12' formula='PMT(0.12/12,E11,-B9)'></object>
+<object id='fF12' formula='PMT(0.12/12,F11,-B9)'></object>
+<object id='fG12' formula='PMT(0.12/12,G11,-B9)'></object>
+<object id='fH12' formula='PMT(0.12/12,H11,-B9)'></object>
+<object id='fI12' formula='PMT(0.12/12,I11,-B9)'></object>
+
+<!-- dependencies -->
+<object id='dB9' dependents='C12:I12'></object>
+</body>
